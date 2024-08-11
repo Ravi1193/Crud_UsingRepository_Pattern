@@ -1,0 +1,27 @@
+﻿@model IEnumerable<WebApplication1.Models.Product>
+
+<h2>Products</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = product.ProductId }) |
+                    @Html.ActionLink("Edit", "Edit", new { id = product.ProductId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = product.ProductId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
